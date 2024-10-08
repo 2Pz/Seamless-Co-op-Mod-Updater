@@ -1,0 +1,121 @@
+{
+    "language_name": "العربية",
+    "ui": {
+        "main_window": {
+            "title": "محدث مود التعاون السلس",
+            "tabs": {
+                "update": "تحديث",
+                "settings": "الإعدادات",
+                "readme": "اقرأني",
+                "changlog": "سجل التحديثات"
+            },
+            "menu": {
+                "help": "مساعدة",
+                "check_updates": "التحقق من التحديثات",
+                "about": "حول"
+            },
+            "status": {
+                "version": {
+                    "app": "إصدار التطبيق: {}",
+                    "mod": {
+                        "unknown": "إصدار اللعب التعاون السلس: غير معروف",
+                        "not_found": "إصدار مود التعاون السلس: لم يتم العثور عليه",
+                        "found": "إصدار مود التعاون السلس: {}"
+                    }
+                }
+            },
+            "update_button": "تحديث مود التعاون السلس",
+            "status_ready": "جاهز"
+        },
+        "settings": {
+            "title": "الإعدادات",
+            "game_path": {
+                "title": "مسار اللعبة",
+                "label": "مسار اللعبة:",
+                "browse_button": "تصفح",
+                "select_game_folder": "حدد مجلد لعبة إلدن رينغ"
+            },
+            "gameplay": {
+                "title": "اللعب",
+                "allow_invaders": "السماح بالغزاة",
+                "death_debuffs": "تأثيرات الموت السلبية",
+                "allow_summons": "السماح بالاستدعاءات",
+                "overhead_display": "عرض ما فوق رأس اللاعب",
+                "display_options": {
+                    "normal": "عادي",
+                    "none": "لا شيء",
+                    "player_ping": "معدل اتصال اللاعب",
+                    "player_soul_level": "مستوى روح اللاعب",
+                    "player_death_count": "عدد مرات موت اللاعب",
+                    "soul_level_and_ping": "مستوى الروح ومعدل الاتصال"
+                },
+                "skip_splash": "تخطي شاشات البداية",
+                "volume": "التحكم الرئيسي بالصوت عند التشغيل:"
+            },
+            "scaling": {
+                "title": "التدرج",
+                "enemy_health": "تدرج صحة الأعداء (%):",
+                "enemy_damage": "تدرج ضرر الأعداء (%):",
+                "enemy_posture": "تدرج وضعية الأعداء (%):",
+                "boss_health": "تدرج صحة الزعيم (%):",
+                "boss_damage": "تدرج ضرر الزعيم (%):",
+                "boss_posture": "تدرج وضعية الزعيم (%):"
+            },
+            "password": {
+                "title": "كلمة المرور",
+                "coop_password": "كلمة مرور لمود التعاون:"
+            },
+            "save": {
+                "title": "الحفظ",
+                "extension": "امتداد ملف الحفظ:"
+            },
+            "language": {
+                "title": "اللغة",
+                "override": "تجاوز لغة المود:",
+                "select_language": "حدد لغة التطبيق"
+            },
+            "save_button": "حفظ الإعدادات",
+            "settings_saved": "تم حفظ الإعدادات",
+            "saved_message": "تم حفظ إعداداتك في {}"
+        },
+        "about": {
+            "title": "حول",
+            "content": "محدث مود التعاون السلس\nالإصدار: {}\n\nهذا التطبيق يساعدك في تحديث وإدارة مود التعاون السلس لإلدن رينغ.\n\nمن إنشاء 2Pz"
+        }
+    },
+    "messages": {
+        "update": {
+            "checking": "جارٍ التحقق من التحديثات...",
+            "latest_installed": "لديك بالفعل أحدث إصدار: {}.\nهل تريد إعادة تثبيته؟",
+            "up_to_date": "أنت تستخدم بالفعل أحدث إصدار.",
+            "downloading": "جارٍ تنزيل {}...",
+            "extracting_updates": "جارٍ استخراج التحديث...",
+            "last_version_installed": "تم تثبيت أحدث إصدار",
+            "extracting": "جارٍ استخراج الملفات...",
+            "updating_settings": "جارٍ تحديث الإعدادات...",
+            "complete": "تم تحديث {} بنجاح!",
+            "update_error": "حدث خطأ أثناء التحديث",
+            "update_complete": "اكتمل التحديث",
+            "update_status": "حالة التحديث",
+            "update_available": "التحديث متاح",
+            "app_updated": "تم تنزيل إصدار جديد SeamlessCo-opUpdater_{}.exe.\nيمكنك حذف هذا الإصدار.",
+            "new_version_downloading": "الإصدار الجديد {} متاح. جارٍ التنزيل...",
+            "download?": "يتوفر إصدار جديد!\n\nالإصدار الحالي: {}\nأحدث إصدار: {}\n\nهل تريد التحديث الآن؟",
+            "update_cancelled": "تم إلغاء التحديث",
+            "show_about": "محدث مود التعاون السلس \nالإصدار: {}\n\nهذا التطبيق يساعدك في تحديث وإدارة مود \nمود التعاون السلس لإلدن رينغ.\n\nمن إنشاء {}"
+        },
+        "errors": {
+            "path_required": "يرجى إدخال مسار تثبيت مود إلدن رينغ في علامة تبويب الإعدادات.",
+            "fetch_latest_version": "تعذر جلب أحدث إصدار: {}",
+            "update_error_check": "خطأ أثناء فحص التحديث: {}"
+        }
+    },
+    "lables": {
+        "success": "نجاح",
+        "error": "خطأ",
+        "yes": "نعم",
+        "no": "لا",
+        "ok": "موافق",
+        "cancel": "إلغاء"
+    }
+}
