@@ -119,7 +119,7 @@ class MainWindow(QMainWindow):
             QMessageBox.StandardButton.No
         )
 
-        QMessageBox().setWindowTitle("test").setText("test2")
+        
         if reply == QMessageBox.StandardButton.Yes:
             self.updater.confirm_update()
         else:
