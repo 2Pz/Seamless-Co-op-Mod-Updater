@@ -57,12 +57,24 @@ class Changelongtab(QWidget):
         <li>Initial Setup: If you’re using the app for the first time, please set the game path in the settings page.</li>
     </ul>
 
-   <h2>Version 1.1.0 - support for localization</h2>
-<ul>
-    <li>Enhanced Save Settings functionality to automatically update the "ersc_settings.ini" file.</li>
-    <li>Introduced support for localization, allowing users to select their preferred language. Contributors can download the <a href="https://drive.google.com/file/d/1UcVp1lhmv8BjZhW3VCLILTQ6-aNJeGGW/view?usp=sharing">en.json</a> file, translate it into their desired languages, and send the completed files back for inclusion.</li>
-    <li>Added a dedicated Changelog tab for easier access to update notes and version history.</li>
-</ul>
+    <h2>Version 1.1.0 - Support for Localization</h2>
+    <ul>
+        <li>Enhanced Save Settings functionality to automatically update the "ersc_settings.ini" file.</li>
+        <li>Introduced support for localization, allowing users to select their preferred language. Contributors can download the <a href="https://drive.google.com/file/d/1UcVp1lhmv8BjZhW3VCLILTQ6-aNJeGGW/view?usp=sharing">en.json</a> file, translate it into their desired languages, and send the completed files back for inclusion.</li>
+        <li>Added a dedicated Changelog tab for easier access to update notes and version history.</li>
+    </ul>
+
+    <h2>Version 1.1.1 - Update on Packaging Method</h2>
+    <ul>
+        <li>Due to the app being flagged as malicious, I switched from PyInstaller to cx_Freeze. This method will eliminate false positives, but it will increase the file size.</li>
+    </ul>
+
+    <h2>Version 1.1.2 - Bug Fixes and new Localizations support</h2>
+    <ul>
+        <li>Resolved a critical bug where the text and app borders appeared pure white when the Windows theme was set to light mode, enhancing visual accessibility.</li>
+        <li>Fixed the issue where the "Checking for Updates" message would become stuck in the app, improving user feedback during the update process.</li>
+        <li>Added support for Simplified Chinese and Traditional Chinese localization, thanks to the contributions from B1adeOfMelina.</li>
+    </ul>
 
     <h2>Need Help?</h2>
     <p>If you encounter any issues or have questions, please don't hesitate to visit the <a href="https://www.nexusmods.com/eldenring/mods/6624?tab=posts">Nexusmods Page</a> for support and the latest information.</p>
@@ -70,9 +82,9 @@ class Changelongtab(QWidget):
     <p>Made by 2Pz!</p>
 </body>
 </html>
-
-
 '''
+
+
 
         self.text_browser.setHtml(html_content)
 
