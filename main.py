@@ -4,11 +4,11 @@ from configparser import ConfigParser
 from PyQt6.QtWidgets import QApplication
 from tabs.main_window import MainWindow
 from utility.Localization import Localization
-
+from utility.dark_theme import set_dark_theme
 class App(QApplication):
     def __init__(self, argv):
         super().__init__(argv)
-        
+        set_dark_theme(self)
         # Load preferred language from settings
         preferred_language = self.load_preferred_language()
         
