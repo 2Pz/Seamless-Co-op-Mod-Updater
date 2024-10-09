@@ -28,7 +28,6 @@ class AppUpdater(QThread):
 
             if latest_version > self.current_version:
                 self.update_available.emit(self.current_version, latest_version)
-                # Wait for user confirmation
                 while not self.should_update:
                     self.msleep(100)
                 
@@ -45,17 +44,32 @@ class AppUpdater(QThread):
             asset = next(asset for asset in latest_release['assets'] if asset['name'] == 'SeamlessCo-opUpdater.zip')
             download_url = asset['browser_download_url']
 
-            zip_path = os.path.join(os.path.dirname(sys.executable), "update.zip")
+            # Create a new folder for the update
+            base_dir = os.path.dirname(sys.executable)
+            new_folder_name = f'SeamlessCo-opUpdater_{latest_version}'
+            new_folder_path = os.path.join(base_dir, new_folder_name)
+            
+            # Create the new folder if it doesn't exist
+            os.makedirs(new_folder_path, exist_ok=True)
+
+            # Download to the new folder
+            zip_path = os.path.join(new_folder_path, "update.zip")
             response = requests.get(download_url)
             with open(zip_path, 'wb') as f:
                 f.write(response.content)
 
             self.update_progress.emit(self.Localization.translate("messages.update.extracting_updates"))
+            # Extract to the new folder
             with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-                zip_ref.extractall(os.path.dirname(sys.executable))
+                zip_ref.extractall(new_folder_path)
 
+            # Clean up the zip file
             os.remove(zip_path)
-            self.update_complete.emit(True, self.Localization.translate("messages.update.app_updated").format(latest_version))
+            
+            success_message = self.Localization.translate("messages.update.app_updated").format(
+                latest_version) + f"\nExtracted to: {new_folder_path}"
+            self.update_complete.emit(True, success_message)
+        
         except Exception as e:
             self.update_complete.emit(False, self.Localization.translate("messages.errors.update_error_check").format(str(e)))
 
