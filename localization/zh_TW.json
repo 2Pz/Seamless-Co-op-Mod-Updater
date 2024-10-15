@@ -1,0 +1,121 @@
+{
+    "language_name": "中文（繁体）",
+    "ui": {
+        "main_window": {
+            "title": "SCMU 無縫聯機MOD升級配置工具 SeamlessCoop Mod Updater",
+            "tabs": {
+                "update": "升級",
+                "settings": "設定",
+                "readme": "使用說明",
+                "changlog": "更新日誌"
+            },
+            "menu": {
+                "help": "使用幫助",
+                "check_updates": "檢查 SCMU 更新",
+                "about": "關於 SCMU"
+            },
+            "status": {
+                "version": {
+                    "app": "SCMU 版本: {}",
+                    "mod": {
+                        "unknown": "已安裝的無縫聯機 MOD 版本：未知",
+                        "not_found": "未找到無縫聯機 MOD",
+                        "found": "已安裝的無縫聯機 MOD 版本：{}"
+                    }
+                }
+            },
+            "update_button": "升級無縫聯機 MOD",
+            "status_ready": "已就緒"
+        },
+        "settings": {
+            "title": "設定",
+            "game_path": {
+                "title": "遊戲路徑",
+                "label": "遊戲路徑（Game文件夾）：",
+                "browse_button": "瀏覽",
+                "select_game_folder": "選擇遊戲根目錄"
+            },
+            "gameplay": {
+                "title": "遊戲性",
+                "allow_invaders": "允許入侵者",
+                "death_debuffs": "開啟死亡懲罰",
+                "allow_summons": "允許召喚骨灰",
+                "overhead_display": "玩家頭頂顯示：",
+                "display_options": {
+                    "normal": "玩家ID",
+                    "none": "無顯示",
+                    "player_ping": "玩家延遲（Ping）",
+                    "player_soul_level": "玩家等級",
+                    "player_death_count": "玩家死亡次數",
+                    "soul_level_and_ping": "玩家等級和延遲（Ping）"
+                },
+                "skip_splash": "跳過遊戲啟動畫面",
+                "volume": "遊戲啟動時的預設音量："
+            },
+            "scaling": {
+                "title": "敵人屬性修整（每增加一位玩家）",
+                "enemy_health": "敵人生命值提升百分比：",
+                "enemy_damage": "敵人傷害提升百分比：",
+                "enemy_posture": "敵人受到的削韌減免百分比：",
+                "boss_health": "BOSS生命值提升百分比：",
+                "boss_damage": "BOSS傷害提升百分比：",
+                "boss_posture": "BOSS受到的削韌減免百分比："
+            },
+            "password": {
+                "title": "密碼設定",
+                "coop_password": "聯機密碼："
+            },
+            "save": {
+                "title": "存檔設定",
+                "extension": "指定 MOD 存檔後綴："
+            },
+            "language": {
+                "title": "語言設定",
+                "override": "強制將遊戲語言設定為：",
+                "select_language": "選擇語言"
+            },
+            "save_button": "保存更改",
+            "settings_saved": "設定已保存",
+            "saved_message": "你的設定已經保存到\n {}"
+        },
+        "about": {
+            "title": "關於",
+            "content": "無縫聯機 MOD 升級配置工具 SeamlessCoop Updater\n版本： {}\n\n這個工具用於升級和配置《艾爾登法環》無縫聯機 MOD 。\n\n作者：2Pz \n中文翻譯：梅琳娜的刀@Bilibili"
+        }
+    },
+    "messages": {
+        "update": {
+            "checking": "正在檢查 SCMU 更新……",
+            "latest_installed": "你的 MOD 已經是最新版本： {}。\n要重新安裝無縫聯機 MOD 嗎？",
+            "up_to_date": "SCMU 已經是最新版本",
+            "downloading": "正在下載無縫聯機 MOD {} 版本……",
+            "extracting_updates": "正在解壓更新……",
+            "last_version_installed": "MOD最新版本已安裝",
+            "extracting": "正在解壓文件……",
+            "updating_settings": "正在更新設定……",
+            "complete": "成功更新到無縫聯機MOD {} 版本！",
+            "update_error": "更新時遇到問題",
+            "update_complete": "更新完成",
+            "update_status": "更新狀態",
+            "update_available": "MOD已發布新版本",
+            "app_updated": "工具的新版本 SeamlessCo-opUpdater_{}.exe 已下載。 \n你可以刪除當前版本了。",
+            "new_version_downloading": "工具的新版本 {} 已發布。正在下載……",
+            "download?": "工具已發布新版本！\n\n當前版本： {}\n最新版本： {}\n\n要更新工具嗎？",
+            "update_cancelled": "更新已取消",
+            "show_about": "無縫聯機MOD升級配置工具 \n版本： {}\n\n這個工具用於升級和配置《艾爾登法環》無縫聯機MOD。\n\n作者： {} \n中文翻譯：梅琳娜的刀@Bilibili"
+        },
+        "errors": {
+            "path_required": "請在設定頁面配置遊戲根目錄！",
+            "fetch_latest_version": "無法獲取最新版本： {}",
+            "update_error_check": "在檢查更新時遇到問題： {}"
+        }
+    },
+    "lables": {
+        "success": "成功",
+        "error": "失敗",
+        "yes": "是",
+        "no": "否",
+        "ok": "OK",
+        "cancel": "取消"
+    }
+}

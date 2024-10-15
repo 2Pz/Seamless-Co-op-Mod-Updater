@@ -1,0 +1,122 @@
+{
+    "language_name": "Português Brasileiro",
+    "ui": {
+        "main_window": {
+            "title": "Seamless Co-op Mod Updater",
+            "tabs": {
+                "update": "Atualizar",
+                "settings": "Configurações",
+                "readme": "Leia-me",
+                "changlog": "Log de Atualização"
+            },
+            "menu": {
+                "help": "Ajuda",
+                "check_updates": "Verificar Atualizações",
+                "about": "Sobre"
+            },
+            "status": {
+                "version": {
+                    "app": "Versão: {}",
+                    "mod": {
+                        "unknown": "Seamless Co-op Versão: Desconhecido",
+                        "not_found": "Seamless Co-op Versão: Não Encontrado",
+                        "found": "Seamless Co-op Versão: {}"
+                    }
+                }
+            },
+            "update_button": "Atualizar Seamless Co-op Mod",
+            "status_ready": "Pronto"
+        },
+        "settings": {
+            "title": "Configurações",
+            "game_path": {
+                "title": "Pasta do Elden Ring",
+                "label": "Elden Ring /Game:",
+                "browse_button": "Buscar",
+                "select_game_folder": "Selecione a Pasta Gamde de Elden Ring"
+            },
+            "gameplay": {
+                "title": "Gameplay",
+                "allow_invaders": "Permitir Invasão de outros Jogadores",
+                "death_debuffs": "Maldições ao Morrer",
+                "allow_summons": "Permitir Invocações",
+                "overhead_display": "Titulo na cabeça dos jogadores:",
+                "display_options": {
+                    "normal": "Normal",
+                    "none": "Nada",
+                    "player_ping": "Ping do Jogador",
+                    "player_soul_level": "Nivel de Almas do Jogador",
+                    "player_death_count": "Contagem de Mortes do Jogador",
+                    "soul_level_and_ping": "Ping e Nivel de Almas"
+                },
+                "skip_splash": "Pular Telas de Apresentação",
+                "volume": "Volume Padrão de Inicialização:"
+            },
+            "scaling": {
+                "title": "Status de Inimigos",
+                "enemy_health": "Escala de Vida de inimigos (%):",
+                "enemy_damage": "Escala de Dano de inimigos (%):",
+                "enemy_posture": "Escala de Postura de inimigos (%):",
+                "boss_health": "Escala de Vida de Chefões (%):",
+                "boss_damage": "Escala de Dano de Chefões  (%):",
+                "boss_posture": "Escala de Postura de Chefões  (%):"
+            },
+            "password": {
+                "title": "Senha",
+                "coop_password": "Senha da sala Coop:"
+            },
+            "save": {
+                "title": "Save (sl2, co2, ...)",
+                "extension": "Extensão dos teus Saves:"
+            },
+            "language": {
+                "title": "Idioma (brazilian, english, ...)",
+                "override": "Idioma do Coop:",
+                "select_language": "Selecione o Idioma"
+
+            },
+            "save_button": "Salvar as modificações",
+            "settings_saved": "Configurações salvadas",
+            "saved_message": "Suas configurações foram salvas em {}"
+        },
+        "about": {
+            "title": "Sobre",
+            "content": "Seamless Co-op Mod Update\nVersão: {}\n\nEste aplicativo ajuda você a atualizar e gerenciar o Mod Seamless Co-op para Elden Ring.\n\nCriado por 2Pz. Traduzido por Ninu"
+        }
+    },
+    "messages": {
+        "update": {
+            "checking": "Verificando atualizações...",
+            "latest_installed": "Você já tem a versão mais recente: {}.\nVocê quer reinstalá-lo?",
+            "up_to_date": "Você já está usando a versão mais recente.",
+            "downloading": "Baixando {}...",
+            "extracting_updates": "Extraindo atualização...",
+            "last_version_installed":"Última versão instalada",
+            "extracting": "Extraindo arquivos...",
+            "updating_settings": "Atualizando configurações...",
+            "complete": "Atualização para {} concluída com sucesso!",
+            "update_error": "Erro durante a atualização",
+            "update_complete": "Atualização concluída",
+            "update_status": "Atualizar status",
+            "update_available": "Atualização disponível",
+            "app_updated": "Nova versão de atualização do SeamlessCo-opUpdater_{}.exe para download. \nVocê pode excluir esta versão.",
+            "new_version_downloading": "Nova versão {} disponível. Baixando...",
+            "download?": "Uma nova versão está disponível!\n\nVersão atual: {}\nÚltima versão: {}\n\nVocê quer atualizar agora?",
+            "update_cancelled": "Atualização cancelada",
+            "show_about": "Seamless Co-op Mod Update \nVersão: {}\n\nEste aplicativo ajuda você a atualizar e gerenciar o Seamless \nMod Co-op de Elden Ring.\n\nCriado por {}, Atualizado por Ninu"
+        },
+        "errors": {
+            "path_required": "Insira o caminho de instalação do mod Elden Ring na aba Configurações.",
+            "fetch_latest_version": "Não é possível obter a versão mais recente: {}",
+            "update_error_check": "Erro durante a verificação de atualização: {}"
+        }
+    },
+    "lables": {
+        "success":"Sucesso",
+        "error": "Erro",
+        "yes": "Sim",
+        "no": "Não",
+        "ok": "Ok",
+        "cancel": "Cancelar"
+    }
+}
