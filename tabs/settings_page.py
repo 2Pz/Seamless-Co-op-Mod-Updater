@@ -6,7 +6,8 @@ from PyQt6.QtWidgets import (QWidget, QVBoxLayout,
                              QCheckBox, QSpinBox, QComboBox, QGroupBox, QScrollArea)
 from configparser import ConfigParser
 from language_selector import LanguageSelector
-
+import aiohttp
+from utility.worker import AsyncWorker
 
 class SettingsPage(QWidget):
     def __init__(self, parent=None):
@@ -43,6 +44,28 @@ class SettingsPage(QWidget):
         language_layout.addWidget(self.language_selector, 0, 1)
 
         scroll_layout.addWidget(self.language_group1)
+
+        # Game Session settings
+        self.game_session_group = QGroupBox(self.Localization.translate("ui.settings.game_session.title"))
+        game_session_layout = QGridLayout()
+        self.game_session_group.setLayout(game_session_layout)
+
+        self.username_label = QLabel(self.Localization.translate("ui.settings.game_session.username"))
+        game_session_layout.addWidget(self.username_label, 0, 0)
+        self.username_input = QLineEdit()
+        game_session_layout.addWidget(self.username_input, 0, 1)
+
+        self.message_label = QLabel(self.Localization.translate("ui.settings.game_session.message"))
+        game_session_layout.addWidget(self.message_label, 1, 0)
+        self.message_input = QLineEdit()
+        game_session_layout.addWidget(self.message_input, 1, 1)
+
+        self.share_game_session = QCheckBox(self.Localization.translate("ui.settings.game_session.share"))
+        game_session_layout.addWidget(self.share_game_session, 2, 0, 1, 2)
+
+        self.share_game_session.stateChanged.connect(self.on_share_game_session_changed)
+    
+        scroll_layout.addWidget(self.game_session_group)
 
         # Game Path
         
@@ -175,6 +198,45 @@ class SettingsPage(QWidget):
 
         
 
+    async def share_game_session_data(self):
+        settings = self.get_settings()
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.post("https://seamless-co-op-game-sessions.onrender.com/api/add_session", 
+                                        json={
+                                            "username": settings['username'],
+                                            "message": settings['message'],
+                                            "password": settings['cooppassword']
+                                        },
+                                        timeout=5) as response:  # Add a 5-second timeout
+                    if response.status == 200:
+                        return True, "Game session shared successfully"
+                    else:
+                        return False, await response.text()
+        except aiohttp.ClientError as e:
+            return False, f"Error sharing game session: {str(e)}"
+        except Exception as e:
+            return False, f"Unexpected error sharing game session: {str(e)}"
+
+    async def remove_game_session_data(self):
+        settings = self.get_settings()
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.post("https://seamless-co-op-game-sessions.onrender.com/api/remove_session", 
+                                        json={
+                                            "username": settings['username'],
+                                            "action": "remove"
+                                        },
+                                        timeout=5) as response:  # Add a 5-second timeout
+                    if response.status == 200:
+                        return True, "Game session removed successfully"
+                    else:
+                        return False, await response.text()
+        except aiohttp.ClientError as e:
+            return False, f"Error removing game session: {str(e)}"
+        except Exception as e:
+            return False, f"Unexpected error removing game session: {str(e)}"
+
     def browse_path(self):
         folder = QFileDialog.getExistingDirectory(self, self.Localization.translate("ui.settings.game_path.select_game_folder"))
         if folder:
@@ -191,6 +253,9 @@ class SettingsPage(QWidget):
 
             config = ConfigParser()
             config['Settings'] = {
+                'username': self.username_input.text(),
+                'message': self.message_input.text(),
+                'share_game_session': str(int(self.share_game_session.isChecked())),
                 'preferred_language': self.Localization.language,
                 'mod_path': self.path_input.text(),
                 'allow_invaders': str(int(self.allow_invaders.isChecked())),
@@ -209,6 +274,7 @@ class SettingsPage(QWidget):
                 'save_file_extension': self.save_file_extension.text(),
                 'mod_language_override': self.mod_language_override.text()
             }
+
 
             settings_path = self.get_settings_path()
             with open(settings_path, 'w') as configfile:
@@ -302,9 +368,42 @@ class SettingsPage(QWidget):
             # Other settings...
             preferred_language = settings.get('preferred_language', 'en')  # Default to 'English'
             self.language_selector.setCurrentText(preferred_language)  # Restore selected language
+
+            self.username_input.setText(settings.get('username', ''))
+            self.message_input.setText(settings.get('message', ''))
+            self.share_game_session.setChecked(bool(int(settings.get('share_game_session', '0'))))
         else:
             # If the settings file doesn't exist, use default values
             self.set_default_values()
+
+
+    def on_share_game_session_changed(self):
+        if self.share_game_session.isChecked():
+            self.worker = AsyncWorker(self.share_game_session_data)
+            self.worker.finished.connect(self.on_share_game_session_complete)
+            self.worker.start()
+        else:
+            self.worker = AsyncWorker(self.remove_game_session_data)
+            self.worker.finished.connect(self.on_remove_game_session_complete)
+            self.worker.start()
+
+        # Disable the checkbox while the operation is in progress
+        self.share_game_session.setEnabled(True)
+
+    def on_share_game_session_complete(self, success, message):
+        self.share_game_session.setEnabled(True)  # Re-enable the checkbox
+        if not success:
+            self.share_game_session.setChecked(False)
+            QMessageBox.warning(self, self.Localization.translate("ui.settings.error"), "messages.errors.share_game_error")
+
+    def on_remove_game_session_complete(self, success, message):
+        self.share_game_session.setEnabled(True)  # Re-enable the checkbox
+        if not success:
+            self.share_game_session.setChecked(False)
+            #QMessageBox.warning(self, self.Localization.translate("ui.settings.error"), "messages.errors.share_game_error")
+
+
+
 
     def set_default_values(self):
         # Set default values for all settings
@@ -325,6 +424,9 @@ class SettingsPage(QWidget):
         self.cooppassword.setText('12345')
         self.save_file_extension.setText('co2')
         self.mod_language_override.setText('')
+        self.username_input.setText('')
+        self.message_input.setText('')
+        self.share_game_session.setChecked(False)
 
 
     def get_settings(self):
@@ -343,6 +445,9 @@ class SettingsPage(QWidget):
             "boss_posture_scaling": self.boss_posture_scaling.value(),
             "cooppassword": self.cooppassword.text(),
             "save_file_extension": self.save_file_extension.text(),
-            "mod_language_override": self.mod_language_override.text()
+            "mod_language_override": self.mod_language_override.text(),
+            "username": self.username_input.text(),
+            "message": self.message_input.text(),
+            "share_game_session": int(self.share_game_session.isChecked()),
             
         }
