@@ -30,12 +30,12 @@ class Changelongtab(QWidget):
         current_dir = os.path.dirname(os.path.abspath(__file__))
 
         markdown_content = '''
-# Elden Ring Seamless Coop Mod Updater Changelog
+# Elden Ring Seamless Coop Mod Manager Changelog
 
-Welcome to the changelog for the Elden Ring Seamless Coop Mod Updater! Here, you can find all the updates, enhancements, and fixes implemented in the latest versions of the tool.
+Welcome to the changelog for the Elden Ring Seamless Coop Mod Manager! Here, you can find all the updates, enhancements, and fixes implemented in the latest versions of the tool.
 
 ## Version 1.0.0 - Initial Release
-- Launched the Seamless Coop Mod Updater tool.
+- Launched the Seamless Coop Mod Manager tool.
 - Included automated mod downloading and installation functionality.
 - Designed an intuitive interface for easy mod configuration.
 - Enabled one-click updates to the latest mod version.
@@ -55,19 +55,25 @@ Welcome to the changelog for the Elden Ring Seamless Coop Mod Updater! Here, you
 ## Version 1.1.1 - Update on Packaging Method
 - Due to the app being flagged as malicious, I switched from PyInstaller to cx_Freeze. This method will eliminate false positives, but it will increase the file size.
 
-## Version 1.1.2 - Bug Fixes and new Localizations support
+## Version 1.1.2 - Bug Fixes and New Localizations Support
 - Resolved a critical bug where the text and app borders appeared pure white when the Windows theme was set to light mode, enhancing visual accessibility.
 - Fixed the issue where the "Checking for Updates" message would become stuck in the app, improving user feedback during the update process.
 - Added support for Simplified Chinese and Traditional Chinese localization, thanks to the contributions from [B1adeOfMelina](https://next.nexusmods.com/profile/B1adeOfMelina/about-me?gameId=4333).
 
-## Version 1.1.3 - new Localizations support
+## Version 1.1.3 - New Localizations Support
 - Added support for Portuguese localization, thanks to the contributions from [Rakaels](https://next.nexusmods.com/profile/INinu/about-me?gameId=1704).
+
+## Version 1.2.0 - Game Sessions
+- Introduced a Game Sessions tab to allow players to share their co-op passwords with each other. Currently, this feature utilizes a free hosting API, so expect some errors.
+- You can view the game sessions game sessions directly within this page [Seamless Co-op Game Sessions](https://2pz.github.io/Seamless-Co-op-Game-Sessions/)
+- Users can set their username and a short message in the settings tab, this feature is optional.
+- The tool name has been changed from **Seamless Coop Mod Updater** to **Seamless Coop Mod Manager** because it is no longer just a simple INI editor! :)
 
 ## Need Help?
 If you encounter any issues or have questions, please don't hesitate to visit the [Nexusmods Page](https://www.nexusmods.com/eldenring/mods/6624?tab=posts) for support and the latest information.
 
-
 Made by 2Pz!
+
 '''
 
         self.text_browser.setMarkdown(markdown_content)
