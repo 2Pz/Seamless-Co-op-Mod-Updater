@@ -16,12 +16,18 @@ from utility.version_checker import extract_version_after_marker  # Import the v
 from utility.resource_ import resource_path
 from utility.Localization import Localization
 from utility.message_box_patch import apply_patches
+from tabs.game_session_tab import GameSessionTab
+
+
+
 apply_patches()
 
 class MainWindow(QMainWindow):
     def __init__(self, localization=None):
         super().__init__()
         self.Localization = localization or Localization(language='en', app=QApplication.instance())
+
+        
         
         self.setWindowTitle(self.Localization.translate("ui.main_window.title"))
         self.setGeometry(100, 100, 800, 600)
@@ -34,11 +40,13 @@ class MainWindow(QMainWindow):
 
         self.update_tab = QWidget()
         self.settings_tab = SettingsPage(self)
+        self.game_session_tab = GameSessionTab(self.Localization, self.settings_tab.get_settings())
         self.readme_tab = ReadmeTab()
         self.changelog_tab = Changelongtab()
 
         self.tab_widget.addTab(self.update_tab, self.Localization.translate("ui.main_window.tabs.update"))
         self.tab_widget.addTab(self.settings_tab, self.Localization.translate("ui.main_window.tabs.settings"))
+        self.tab_widget.addTab(self.game_session_tab, self.Localization.translate("ui.main_window.tabs.game_session"))
         self.tab_widget.addTab(self.readme_tab, self.Localization.translate("ui.main_window.tabs.readme"))
         self.tab_widget.addTab(self.changelog_tab, self.Localization.translate("ui.main_window.tabs.changlog"))
 
@@ -206,6 +214,10 @@ class MainWindow(QMainWindow):
             if reply != QMessageBox.StandardButton.Yes:
                 return
 
+        # Check if session sharing is enabled and share the session
+        settings = self.settings_tab.get_settings()
+        if settings['share_game_session']:
+            self.share_game_session(settings)
         # Proceed with updating
         url = "https://github.com/LukeYui/EldenRingSeamlessCoopRelease/releases/latest/download/ersc.zip"
         settings = self.settings_tab.get_settings()
@@ -213,6 +225,19 @@ class MainWindow(QMainWindow):
         self.update_thread.update_progress.connect(self.update_status)
         self.update_thread.update_complete.connect(self.update_finished)
         self.update_thread.start()
+
+    def share_game_session(self, settings):
+        session_data = {
+            "username": settings['username'],
+            "message": settings['message'],
+            "password": settings['cooppassword']
+        }
+        try:
+            response = requests.post("http://localhost:8001/add_session", json=session_data)
+            if response.status_code != 200:
+                print(f"Failed to share game session. Status code: {response.status_code}")
+        except Exception as e:
+            print(f"Error sharing game session: {str(e)}")
 
     def update_status(self, message):
         self.status_label.setText(message)
@@ -226,5 +251,19 @@ class MainWindow(QMainWindow):
         else:
             QMessageBox.warning(self, self.Localization.translate('lables.error'), message)
 
+        # Refresh the game session tab after update
+        self.game_session_tab.refresh_sessions()
 
-    
+
+    def closeEvent(self, event):
+        settings = self.settings_tab.get_settings()
+        if settings['share_game_session']:
+            try:
+                session_data = {
+                    "username": settings['username'],
+                    "action": "remove"
+                }
+                requests.post("https://seamless-co-op-game-sessions.onrender.com/api/remove_session", json=session_data)
+            except Exception as e:
+                print(f"Error removing game session: {str(e)}")
+        event.accept()
