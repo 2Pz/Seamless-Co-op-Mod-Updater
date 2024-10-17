@@ -41,12 +41,12 @@ class AppUpdater(QThread):
     def perform_update(self, latest_release, latest_version):
         try:
             self.update_progress.emit(self.Localization.translate("messages.update.new_version_downloading").format(latest_version))
-            asset = next(asset for asset in latest_release['assets'] if asset['name'] == 'SeamlessCo-opUpdater.zip')
+            asset = next(asset for asset in latest_release['assets'] if asset['name'] == 'SeamlessCo-opManager.zip.zip')
             download_url = asset['browser_download_url']
 
             # Create a new folder for the update
             base_dir = os.path.dirname(sys.executable)
-            new_folder_name = f'SeamlessCo-opUpdater_{latest_version}'
+            new_folder_name = f'SeamlessCo-opManager_{latest_version}'
             new_folder_path = os.path.join(base_dir, new_folder_name)
             
             # Create the new folder if it doesn't exist
