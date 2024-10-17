@@ -49,6 +49,7 @@ class LanguageSelector(QComboBox):
         self.localization.load_localization()
         self.update_main_window_ui()
         self.update_settings_tab_ui()
+        self.update_game_session_tab()
         self.set_layout_direction(selected_language)
 
 
@@ -66,8 +67,9 @@ class LanguageSelector(QComboBox):
         # Update tab names
         self.main_window.tab_widget.setTabText(0, self.localization.translate("ui.main_window.tabs.update"))
         self.main_window.tab_widget.setTabText(1, self.localization.translate("ui.main_window.tabs.settings"))
-        self.main_window.tab_widget.setTabText(2, self.localization.translate("ui.main_window.tabs.readme"))
-        self.main_window.tab_widget.setTabText(3, self.localization.translate("ui.main_window.tabs.changlog"))
+        self.main_window.tab_widget.setTabText(2, self.localization.translate("ui.main_window.tabs.game_session"))
+        self.main_window.tab_widget.setTabText(3, self.localization.translate("ui.main_window.tabs.readme"))
+        self.main_window.tab_widget.setTabText(4, self.localization.translate("ui.main_window.tabs.changlog"))
         
         # Update menu items
         help_menu = self.main_window.menu_bar.actions()[0]
@@ -90,6 +92,18 @@ class LanguageSelector(QComboBox):
         
         # Re-Call .dll version check function
         self.main_window.update_dll_version_label()
+
+    def update_game_session_tab(self):
+        game_session_tab = self.main_window.game_session_tab
+        game_session_tab.search_input.setPlaceholderText(self.localization.translate("ui.game_session.search_placeholder"))
+        
+        game_session_tab.session_table.setHorizontalHeaderLabels([
+        self.localization.translate("ui.game_session.username"),
+        self.localization.translate("ui.game_session.message"),
+        self.localization.translate("ui.game_session.password")
+    ])
+
+        
 
     def update_settings_tab_ui(self):
         settings_tab = self.main_window.settings_tab
@@ -117,6 +131,16 @@ class LanguageSelector(QComboBox):
 
         # App language
         settings_tab.select_language.setText(self.localization.translate("ui.settings.language.select_language"))
+
+        # Game Session 
+        settings_tab.game_session_group.setTitle(self.localization.translate("ui.settings.game_session.title"))
+        settings_tab.username_label.setText(self.localization.translate("ui.settings.game_session.username"))
+        settings_tab.message_label.setText(self.localization.translate("ui.settings.game_session.message"))
+        settings_tab.share_game_session.setText(self.localization.translate("ui.settings.game_session.share"))
+
+
+
+
         # Game Path
         settings_tab.game_path.setText(self.localization.translate("ui.settings.game_path.label"))
 
