@@ -2,121 +2,136 @@
     "language_name": "中文（简体）",
     "ui": {
         "main_window": {
-            "title": "SCMU 无缝联机MOD升级配置工具 SeamlessCoop Mod Updater",
+            "title": "无缝联机MOD管理器",
             "tabs": {
-                "update": "升级",
+                "update": "更新",
                 "settings": "设置",
                 "readme": "使用说明",
-                "changlog": "更新日志"
+                "changlog": "更新日志",
+                "game_session": "游戏会话"
             },
             "menu": {
-                "help": "使用帮助",
-                "check_updates": "检查 SCMU 更新",
-                "about": "关于 SCMU"
+                "help": "帮助",
+                "check_updates": "检查更新",
+                "about": "关于"
             },
             "status": {
                 "version": {
-                    "app": "SCMU 版本: {}",
+                    "app": "应用版本: {}",
                     "mod": {
-                        "unknown": "已安装的无缝联机 MOD 版本：未知",
-                        "not_found": "未找到无缝联机 MOD",
-                        "found": "已安装的无缝联机 MOD 版本：{}"
+                        "unknown": "无缝联机版本: 未知",
+                        "not_found": "无缝联机版本: 未找到",
+                        "found": "无缝联机版本: {}"
                     }
                 }
             },
-            "update_button": "升级无缝联机 MOD",
+            "update_button": "更新无缝联机MOD",
             "status_ready": "已就绪"
         },
         "settings": {
             "title": "设置",
             "game_path": {
                 "title": "游戏路径",
-                "label": "游戏路径（Game文件夹）：",
+                "label": "游戏路径:",
                 "browse_button": "浏览",
-                "select_game_folder": "选择游戏根目录"
+                "select_game_folder": "选择艾尔登法环游戏文件夹"
             },
             "gameplay": {
                 "title": "游戏性",
                 "allow_invaders": "允许入侵者",
-                "death_debuffs": "开启死亡惩罚",
-                "allow_summons": "允许召唤骨灰",
-                "overhead_display": "玩家头顶显示：",
+                "death_debuffs": "死亡惩罚",
+                "allow_summons": "允许召唤",
+                "overhead_display": "玩家头顶显示:",
                 "display_options": {
-                    "normal": "玩家ID",
-                    "none": "无显示",
-                    "player_ping": "玩家延迟（Ping）",
-                    "player_soul_level": "玩家等级",
+                    "normal": "正常",
+                    "none": "无",
+                    "player_ping": "玩家延迟",
+                    "player_soul_level": "玩家灵魂等级",
                     "player_death_count": "玩家死亡次数",
-                    "soul_level_and_ping": "玩家等级和延迟（Ping）"
+                    "soul_level_and_ping": "灵魂等级和延迟"
                 },
-                "skip_splash": "跳过游戏启动页",
-                "volume": "游戏启动时的默认音量："
+                "skip_splash": "跳过启动画面",
+                "volume": "默认启动音量:"
             },
             "scaling": {
-                "title": "敌人属性修整（每增加一位玩家）",
-                "enemy_health": "敌人生命值提升百分比：",
-                "enemy_damage": "敌人伤害提升百分比：",
-                "enemy_posture": "敌人受到的削韧减免百分比：",
-                "boss_health": "BOSS生命值提升百分比：",
-                "boss_damage": "BOSS伤害提升百分比：",
-                "boss_posture": "BOSS受到的削韧减免百分比："
+                "title": "缩放",
+                "enemy_health": "敌人生命值缩放 (%):",
+                "enemy_damage": "敌人伤害缩放 (%):",
+                "enemy_posture": "敌人韧性缩放 (%):",
+                "boss_health": "Boss生命值缩放 (%):",
+                "boss_damage": "Boss伤害缩放 (%):",
+                "boss_posture": "Boss韧性缩放 (%):"
             },
             "password": {
-                "title": "密码设置",
-                "coop_password": "联机密码："
+                "title": "密码",
+                "coop_password": "联机密码:"
             },
             "save": {
-                "title": "存档设置",
-                "extension": "指定 MOD 存档后缀："
+                "title": "保存",
+                "extension": "存档文件扩展名:"
             },
             "language": {
-                "title": "语言设置",
-                "override": "强制将游戏语言设置为：",
-                "select_language": "选择语言"
-
+                "title": "语言",
+                "override": "MOD语言覆盖:",
+                "select_language": "选择应用语言"
             },
-            "save_button": "保存更改",
+            "save_button": "保存设置",
             "settings_saved": "设置已保存",
-            "saved_message": "你的设置已经保存到\n {}"
+            "saved_message": "你的设置已保存到 {}",
+            "game_session": {
+                "share": "分享你的游戏会话",
+                "title": "游戏会话",
+                "username": "用户名",
+                "message": "消息"
+            }
         },
         "about": {
             "title": "关于",
-            "content": "无缝联机 MOD 升级配置工具 SeamlessCoop Updater\n版本： {}\n\n这个工具用于升级和配置《艾尔登法环》无缝联机 MOD 。\n\n作者：2Pz \n中文翻译：梅琳娜的刀@Bilibili"
+            "content": "无缝联机MOD管理器\n版本: {}\n\n此应用程序帮助你更新和管理艾尔登法环的无缝联机MOD。\n\n创建者: 2Pz"
+        },
+        "game_session": {
+            "username": "用户名",
+            "message": "消息",
+            "password": "联机密码",
+            "refresh": "刷新",
+            "search_placeholder": "搜索游戏会话"
         }
     },
     "messages": {
         "update": {
-            "checking": "正在检查 SCMU 更新……",
-            "latest_installed": "你的 MOD 已经是最新版本： {}。\n要重新安装无缝联机 MOD 吗？",
-            "up_to_date": "SCMU 已经是最新版本",
-            "downloading": "正在下载无缝联机 MOD {} 版本……",
-            "extracting_updates": "正在解压更新……",
-            "last_version_installed":"MOD最新版本已安装",
-            "extracting": "正在解压文件……",
-            "updating_settings": "正在更新设置……",
-            "complete": "成功更新到无缝联机MOD {} 版本！",
-            "update_error": "更新时遇到问题",
+            "checking": "正在检查更新...",
+            "latest_installed": "你已经是最新版本: {}。\n你想要重新安装吗?",
+            "up_to_date": "你已经在使用最新版本。",
+            "downloading": "正在下载 {}...",
+            "extracting_updates": "正在提取更新...",
+            "last_version_installed": "已安装最新版本",
+            "extracting": "正在提取文件...",
+            "updating_settings": "正在更新设置...",
+            "complete": "成功更新到 {}!",
+            "update_error": "更新过程中出现错误",
             "update_complete": "更新完成",
             "update_status": "更新状态",
-            "update_available": "MOD已发布新版本",
-            "app_updated": "工具的新版本 SeamlessCo-opUpdater_{}.exe 已下载。 \n你可以删除当前版本了。",
-            "new_version_downloading": "工具的新版本 {} 已发布。正在下载……",
-            "download?": "工具已发布新版本！\n\n当前版本： {}\n最新版本： {}\n\n要更新工具吗？",
+            "update_available": "有可用更新",
+            "app_updated": "新版本无缝联机管理器 SeamlessCo-opManager_{}.exe 已下载。\n你可以删除这个版本。",
+            "new_version_downloading": "新版本 {} 可用，正在下载...",
+            "download?": "有新版本可用！\n\n当前版本: {}\n最新版本: {}\n\n你想现在更新吗？",
             "update_cancelled": "更新已取消",
-            "show_about": "无缝联机MOD升级配置工具 \n版本： {}\n\n这个工具用于升级和配置《艾尔登法环》无缝联机MOD。\n\n作者： {} \n中文翻译：梅琳娜的刀@Bilibili"
+            "show_about": "无缝联机MOD管理器\n版本: {}\n\n此应用程序帮助你更新和管理无缝联机MOD。\n\n创建者: {}"
         },
         "errors": {
-            "path_required": "请在设置页面配置游戏根目录！",
-            "fetch_latest_version": "无法获取最新版本： {}",
-            "update_error_check": "在检查更新时遇到问题： {}"
+            "path_required": "请在设置选项卡中输入艾尔登法环MOD安装路径。",
+            "fetch_latest_version": "无法获取最新版本: {}",
+            "update_error_check": "检查更新时出现错误: {}",
+            "share_game_error": "似乎服务器可能出现问题。请检查你的互联网连接或稍后再试。",
+            "share_game_error_title": "无法分享游戏会话"
         }
     },
-    "lables": {
-        "success":"成功",
-        "error": "失败",
+    "labels": {
+        "success": "成功",
+        "error": "错误",
         "yes": "是",
         "no": "否",
-        "ok": "OK",
+        "ok": "确定",
         "cancel": "取消"
     }
 }
