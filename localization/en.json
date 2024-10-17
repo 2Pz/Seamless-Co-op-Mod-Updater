@@ -2,12 +2,13 @@
     "language_name": "English",
     "ui": {
         "main_window": {
-            "title": "Seamless Co-op Mod Updater",
+            "title": "Seamless Co-op Mod Manager",
             "tabs": {
                 "update": "Update",
                 "settings": "Settings",
                 "readme": "ReadMe",
-                "changlog": "ChangLog"
+                "changlog": "ChangLog",
+                "game_session": "Game Sessions"
             },
             "menu": {
                 "help": "Help",
@@ -73,15 +74,27 @@
                 "title": "Language",
                 "override": "Mod Language Override:",
                 "select_language": "Select App Language"
-
             },
             "save_button": "Save Settings",
             "settings_saved": "Settings Saved",
-            "saved_message": "Your settings have been saved to {}"
+            "saved_message": "Your settings have been saved to {}",
+            "game_session": {
+                "share": "Share Your game session",
+                "title": "Game Session",
+                "username": "Username",
+                "message": "Message"
+            }
         },
         "about": {
             "title": "About",
-            "content": "Seamless Co-op Mod Updater\nVersion: {}\n\nThis application helps you update and manage Seamless Co-op Mod for Elden Ring.\n\nCreated by 2Pz"
+            "content": "Seamless Co-op Mod Manager\nVersion: {}\n\nThis application helps you update and manage Seamless Co-op Mod for Elden Ring.\n\nCreated by 2Pz"
+        },
+        "game_session": {
+            "username": "Username",
+            "message": "Message",
+            "password": "Co-op Password",
+            "refresh": "Refresh",
+            "search_placeholder": "Search for game session"
         }
     },
     "messages": {
@@ -91,7 +104,7 @@
             "up_to_date": "You are already using the latest version.",
             "downloading": "Downloading {}...",
             "extracting_updates": "Extracting update...",
-            "last_version_installed":"Latest Version Installed",
+            "last_version_installed": "Latest Version Installed",
             "extracting": "Extracting files...",
             "updating_settings": "Updating settings...",
             "complete": "Update to {} completed successfully!",
@@ -99,20 +112,22 @@
             "update_complete": "Update Complete",
             "update_status": "Update Status",
             "update_available": "Update Available",
-            "app_updated": "New Update version SeamlessCo-opUpdater_{}.exe downloaded. \nYou can delete this version.",
+            "app_updated": "New Update version SeamlessCo-opManager_{}.exe downloaded. \nYou can delete this version.",
             "new_version_downloading": "New version {} available. Downloading...",
             "download?": "A new version is available!\n\nCurrent version: {}\nLatest version: {}\n\nDo you want to update now?",
             "update_cancelled": "Update cancelled",
-            "show_about": "Seamless Co-op Mod Updater \nVersion: {}\n\nThis application helps you update and manage Seamless \nCo-op Mod for Elden Ring.\n\nCreated by {}"
+            "show_about": "Seamless Co-op Mod Manager \nVersion: {}\n\nThis application helps you update and manage Seamless \nCo-op Mod for Elden Ring.\n\nCreated by {}"
         },
         "errors": {
             "path_required": "Please enter the Elden Ring mod installation path in the Settings tab.",
             "fetch_latest_version": "Unable to fetch the latest version: {}",
-            "update_error_check": "Error during update check: {}"
+            "update_error_check": "Error during update check: {}",
+            "share_game_error": "It appears that the server might be down. Please check your internet connection or try again later.",
+            "share_game_error_title": "Unable to Share Game Session"
         }
     },
     "lables": {
-        "success":"Success",
+        "success": "Success",
         "error": "Error",
         "yes": "Yes",
         "no": "No",
