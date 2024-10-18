@@ -8,6 +8,9 @@ from configparser import ConfigParser
 from language_selector import LanguageSelector
 import aiohttp
 from utility.worker import AsyncWorker
+from utility.savefile_reader import get_save_folders, find_save_file, read_save_file
+from dotenv import load_dotenv
+load_dotenv()
 
 class SettingsPage(QWidget):
     def __init__(self, parent=None):
@@ -50,18 +53,40 @@ class SettingsPage(QWidget):
         game_session_layout = QGridLayout()
         self.game_session_group.setLayout(game_session_layout)
 
+        self.save_folder_label = QLabel(self.Localization.translate("ui.settings.game_session.save_folder"))
+        game_session_layout.addWidget(self.save_folder_label, 0, 0)
+        self.save_folder_combo = QComboBox()
+        self.save_folder_combo.addItem(self.Localization.translate("ui.settings.game_session.save_folder_select"))  # Default option
+        self.save_folder_combo.addItems(get_save_folders())
+        self.save_folder_combo.currentIndexChanged.connect(self.update_character_list)
+        self.save_folder_combo.currentIndexChanged.connect(self.check_game_session_fields)
+        game_session_layout.addWidget(self.save_folder_combo, 0, 1)
+
+        
+        self.character_label = QLabel(self.Localization.translate("ui.settings.game_session.character"))
+        game_session_layout.addWidget(self.character_label, 1, 0)
+        self.character_combo = QComboBox()
+        self.character_combo.addItem(self.Localization.translate("ui.settings.game_session.character_select"))  # Default option
+        self.character_combo.currentIndexChanged.connect(self.update_username)
+        self.character_combo.currentIndexChanged.connect(self.check_game_session_fields)
+        game_session_layout.addWidget(self.character_combo, 1, 1)
+
         self.username_label = QLabel(self.Localization.translate("ui.settings.game_session.username"))
-        game_session_layout.addWidget(self.username_label, 0, 0)
+        game_session_layout.addWidget(self.username_label, 2, 0)
         self.username_input = QLineEdit()
-        game_session_layout.addWidget(self.username_input, 0, 1)
+        self.username_input.textChanged.connect(self.check_game_session_fields)
+        game_session_layout.addWidget(self.username_input, 2, 1)
 
         self.message_label = QLabel(self.Localization.translate("ui.settings.game_session.message"))
-        game_session_layout.addWidget(self.message_label, 1, 0)
+        game_session_layout.addWidget(self.message_label, 3, 0)
         self.message_input = QLineEdit()
-        game_session_layout.addWidget(self.message_input, 1, 1)
+        self.message_input.textChanged.connect(self.check_game_session_fields)
+        game_session_layout.addWidget(self.message_input, 3, 1)
 
         self.share_game_session = QCheckBox(self.Localization.translate("ui.settings.game_session.share"))
-        game_session_layout.addWidget(self.share_game_session, 2, 0, 1, 2)
+        self.share_game_session.setChecked(False)
+        self.share_game_session.setEnabled(False)
+        game_session_layout.addWidget(self.share_game_session, 4, 0, 1, 2)
 
         self.share_game_session.stateChanged.connect(self.on_share_game_session_changed)
     
@@ -140,7 +165,7 @@ class SettingsPage(QWidget):
         for i, (key, label) in enumerate(scaling_settings):
             scaling_layout.addWidget(QLabel(label), i, 0)
             spinbox = QSpinBox()
-            spinbox.setRange(0, 200)
+            spinbox.setRange(0, 1000)
             scaling_layout.addWidget(spinbox, i, 1)
             setattr(self, key, spinbox)
 
@@ -197,37 +222,82 @@ class SettingsPage(QWidget):
         self.path_input.textChanged.connect(self.parent().update_dll_version_label)
 
         
+    def update_character_list(self):
+        folder = self.save_folder_combo.currentText()
+        if folder != self.Localization.translate("ui.settings.game_session.save_folder"):
+            folder_path = os.path.join(os.environ['APPDATA'], 'EldenRing', folder)
+            save_file = find_save_file(folder_path)
+            if save_file:
+                character_info = read_save_file(save_file)
+                self.character_combo.clear()
+                self.character_combo.addItem(self.Localization.translate("ui.settings.game_session.character_select"))
+                for char in character_info:
+                    self.character_combo.addItem(f"{char['name']} (Level {char['level']})", char)
+            else:
+                self.character_combo.clear()
+                self.character_combo.addItem(self.Localization.translate("ui.settings.game_session.character_select"))
+        else:
+            self.character_combo.clear()
+            self.character_combo.addItem(self.Localization.translate("ui.settings.game_session.character_select"))
+
+            self.check_game_session_fields()
+
+    def update_username(self):
+        character_data = self.character_combo.currentData()
+        if character_data:
+            self.username_input.setText(character_data['name'])
+        else:
+            self.username_input.clear()
+
+        self.check_game_session_fields()
+
+    def check_game_session_fields(self):
+        save_folder_selected = self.save_folder_combo.currentIndex() != 0
+        character_selected = self.character_combo.currentIndex() != 0
+        username_filled = bool(self.username_input.text().strip())
+        message_filled = bool(self.message_input.text().strip())
+
+        self.share_game_session.setEnabled(
+            save_folder_selected and character_selected and username_filled and message_filled
+        )
 
     async def share_game_session_data(self):
         settings = self.get_settings()
+        character_data = self.character_combo.currentData()
+     
         try:
             async with aiohttp.ClientSession() as session:
-                async with session.post("https://seamless-co-op-game-sessions.onrender.com/api/add_session", 
+                async with session.post(f"{os.getenv('API')}/api/add_session", 
                                         json={
                                             "username": settings['username'],
                                             "message": settings['message'],
-                                            "password": settings['cooppassword']
+                                            "password": settings['cooppassword'],
+                                            "level": character_data['level'],
+                                            "stats": character_data['stats']
                                         },
-                                        timeout=5) as response:  # Add a 5-second timeout
+                                        
+                                        timeout=5) as response:
                     if response.status == 200:
                         return True, "Game session shared successfully"
                     else:
                         return False, await response.text()
+                        
         except aiohttp.ClientError as e:
             return False, f"Error sharing game session: {str(e)}"
         except Exception as e:
             return False, f"Unexpected error sharing game session: {str(e)}"
+           
 
     async def remove_game_session_data(self):
         settings = self.get_settings()
         try:
             async with aiohttp.ClientSession() as session:
-                async with session.post("https://seamless-co-op-game-sessions.onrender.com/api/remove_session", 
+                async with session.post(f"{os.getenv('API')}/api/remove_session", 
                                         json={
                                             "username": settings['username'],
                                             "action": "remove"
                                         },
-                                        timeout=5) as response:  # Add a 5-second timeout
+                                        timeout=5) as response:
                     if response.status == 200:
                         return True, "Game session removed successfully"
                     else:
@@ -371,7 +441,15 @@ class SettingsPage(QWidget):
 
             self.username_input.setText(settings.get('username', ''))
             self.message_input.setText(settings.get('message', ''))
-            self.share_game_session.setChecked(bool(int(settings.get('share_game_session', '0'))))
+            # Only set the checkbox if all required fields are filled
+            if (self.save_folder_combo.currentIndex() != 0 and
+                self.character_combo.currentIndex() != 0 and
+                self.username_input.text().strip() and
+                self.message_input.text().strip()):
+                self.share_game_session.setChecked(bool(int(settings.get('share_game_session', '0'))))
+            else:
+                self.share_game_session.setChecked(False)
+                self.check_game_session_fields()
         else:
             # If the settings file doesn't exist, use default values
             self.set_default_values()
@@ -388,18 +466,18 @@ class SettingsPage(QWidget):
             self.worker.start()
 
         # Disable the checkbox while the operation is in progress
-        self.share_game_session.setEnabled(True)
+        self.share_game_session.setEnabled(False)
 
     def on_share_game_session_complete(self, success, message):
         self.share_game_session.setEnabled(True)  # Re-enable the checkbox
         if not success:
             self.share_game_session.setChecked(False)
-            QMessageBox.warning(self, self.Localization.translate("ui.settings.error"), "messages.errors.share_game_error")
+            QMessageBox.warning(self, self.Localization.translate("messages.errors.share_game_error_title"), self.Localization.translate("messages.errors.share_game_error"))
 
     def on_remove_game_session_complete(self, success, message):
         self.share_game_session.setEnabled(True)  # Re-enable the checkbox
         if not success:
-            self.share_game_session.setChecked(False)
+            self.share_game_session.setChecked(True)
             #QMessageBox.warning(self, self.Localization.translate("ui.settings.error"), "messages.errors.share_game_error")
 
 
