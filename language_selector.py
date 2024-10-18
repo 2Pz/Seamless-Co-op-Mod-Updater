@@ -5,6 +5,9 @@ import json
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QComboBox, QLabel
 from utility.resource_ import resource_path
+from utility.savefile_reader import get_save_folders
+
+
 RTL_LANGUAGES = {'ar', 'arc', 'dv', 'fa', 'ha', 'he', 'khw', 'ks', 'ku', 'ps', 'ur', 'yi'}
 
 class LanguageSelector(QComboBox):
@@ -103,6 +106,9 @@ class LanguageSelector(QComboBox):
         self.localization.translate("ui.game_session.password")
     ])
 
+        game_session_tab.setWindowTitle(self.localization.translate("ui.game_session.stat.stat_for"))
+        game_session_tab.setWindowTitle(self.localization.translate("ui.game_session.stat.level"))
+        
         
 
     def update_settings_tab_ui(self):
@@ -137,9 +143,17 @@ class LanguageSelector(QComboBox):
         settings_tab.username_label.setText(self.localization.translate("ui.settings.game_session.username"))
         settings_tab.message_label.setText(self.localization.translate("ui.settings.game_session.message"))
         settings_tab.share_game_session.setText(self.localization.translate("ui.settings.game_session.share"))
+        
+        settings_tab.save_folder_label.setText(self.localization.translate("ui.settings.game_session.save_folder"))
+        settings_tab.character_label.setText(self.localization.translate("ui.settings.game_session.character"))
+        
+        settings_tab.save_folder_combo.clear()
+        settings_tab.save_folder_combo.addItem(self.localization.translate("ui.settings.game_session.save_folder_select"))
+        settings_tab.save_folder_combo.addItems(get_save_folders())
+        
 
-
-
+        settings_tab.character_combo.clear()
+        settings_tab.character_combo.addItem(self.localization.translate("ui.settings.game_session.character_select"))
 
         # Game Path
         settings_tab.game_path.setText(self.localization.translate("ui.settings.game_path.label"))
