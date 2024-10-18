@@ -69,6 +69,11 @@ Welcome to the changelog for the Elden Ring Seamless Coop Mod Manager! Here, you
 - Users can set their username and a short message in the settings tab, this feature is optional.
 - The tool name has been changed from **Seamless Coop Mod Updater** to **Seamless Coop Mod Manager** because it is no longer just a simple INI editor! :)
 
+## Version 1.2.1 - Bug Fixes & API Update for Game sessions
+- Increased the limits of scaling% Enemy & Boss from 200 to 1000
+- Steam ID and Character Dropdowns: New dropdown menus let you select your Steam ID and in-game character. The tool now reads your save file to automatically display your character’s name, level, and stats.
+- Game Sessions Tab Improvements: You can now click on a user's name in the game sessions tab to inspect their character’s level and stats. This feature is also available on the corresponding webpage.
+
 ## Need Help?
 If you encounter any issues or have questions, please don't hesitate to visit the [Nexusmods Page](https://www.nexusmods.com/eldenring/mods/6624?tab=posts) for support and the latest information.
 
