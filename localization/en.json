@@ -1,0 +1,216 @@
+{
+    "language_name": "English",
+    "ui": {
+        "main_window": {
+            "title": "Seamless Co-op Mod Manager",
+            "tabs": {
+                "main": "Main",
+                "settings": "Settings",
+                "readme": "ReadMe",
+                "changlog": "Changelogs",
+                "game_session": "Game Sessions",
+                "ersc_settings": "Seamless Co-op settings",
+                "save_backup": "Save Backup"
+            },
+            "menu": {
+                "help": "Help",
+                "check_app_updates": "Check for Seamless Co-op Manager update",
+                "check_mod_updates": "Check for Seamless Co-op Mod update",
+                "about": "About"
+            },
+            "status": {
+                "version": {
+                    "app": "App Version: {}",
+                    "mod": {
+                        "unknown": "Seamless Co-op Version: Unknown",
+                        "not_found": "Seamless Co-op Version: Not Found",
+                        "found": "Seamless Co-op Version: {}"
+                    }
+                }
+            },
+            "status_ready": "Ready"
+        },
+        "settings": {
+            "title": "Settings",
+            "game_path": {
+                "title": "Game Folder Path",
+                "label": "Game Folder Path:",
+                "browse_button": "Browse",
+                "select_game_folder": "Select Elden Ring Game Folder"
+            },
+            "gameplay": {
+                "title": "Gameplay",
+                "allow_invaders": "Allow Invaders",
+                "death_debuffs": "Death Debuffs",
+                "allow_summons": "Allow Summons",
+                "overhead_display": "Overhead Player Display:",
+                "display_options": {
+                    "normal": "Normal",
+                    "none": "None",
+                    "player_ping": "Player Ping",
+                    "player_soul_level": "Player Soul Level",
+                    "player_death_count": "Player Death Count",
+                    "soul_level_and_ping": "Soul Level and Ping"
+                },
+                "skip_splash": "Skip Splash Screens",
+                "volume": "Default Boot Master Volume:"
+            },
+            "scaling": {
+                "title": "Scaling",
+                "enemy_health": "Enemy Health Scaling (%):",
+                "enemy_damage": "Enemy Damage Scaling (%):",
+                "enemy_posture": "Enemy Posture Scaling (%):",
+                "boss_health": "Boss Health Scaling (%):",
+                "boss_damage": "Boss Damage Scaling (%):",
+                "boss_posture": "Boss Posture Scaling (%):"
+            },
+            "password": {
+                "title": "Password",
+                "coop_password": "Coop Password:"
+            },
+            "save": {
+                "title": "Save",
+                "extension": "Save File Extension:"
+            },
+            "language": {
+                "title": "Language",
+                "override": "Mod Language Override:",
+                "select_language": "Select App Language"
+            },
+            "save_button": "Save Settings",
+            "settings_saved": "Settings Saved",
+            "saved_message": "Your settings have been saved to {}",
+            "game_session": {
+                "share": "Share Your game session",
+                "title": "Game Session",
+                "username": "Username",
+                "message": "Message",
+                "save_folder": "Steam ID",
+                "character": "Character",
+                "save_folder_select": "Select Steam ID",
+                "character_select": "Select a character"
+            },
+            "launcher": {
+                "title": "Seamless Co-op Launcher",
+                "game_exe": "Seamless Co-op executable",
+                "auto_check_updates": "Auto Update",
+                "select_game_exe": "Select Seamless Co-op executable"
+            },
+            "settings_error": "Save Settings Error",
+            "mod_path_error": "Please Make sure you are using the correct path for Game Folder!",
+            "mod_settings_error": "error occurred {}",
+            "reset_button": "Reset Settings",
+            "reset_settings": "Reset Settings",
+            "rest_confirmation": "Are you sure you want to reset all settings to default values?",
+            "steam": {
+                "steam_settings": "Steam Settings",
+                "run_steam_silently": "Run steam silently in the background",
+                "steam_exe": "Steam.exe",
+                "auto_detect": "Auto Detect",
+                "steam_stauts": "Steam Status",
+                "running": "Running",
+                "not_running": "Not Running",
+                "steam_found": "Found Steam.exe",
+                "steam_not_found": "Steam.exe not found. Please manually enter the path.",
+                "steam_path_required": "You must enter the correct path for steam.exee"
+            },
+            "backup": {
+                "backup_settings": "Backup Settings",
+                "save_file_type": "Save File Type:",
+                "dir": "Backup Directory:",
+                "backup_Interval": "Auto Backup Interval (minutes):",
+                "backup_notify": "Enable Notification Sounds",
+                "key_binds": "Key Bindings",
+                "max_backups": "Max Backups:"
+            }
+        },
+        "about": {
+            "title": "About",
+            "content": "Seamless Co-op Mod Manager\nVersion: {}\n\nThis application helps you update and manage Seamless Co-op Mod for Elden Ring.\n\nCreated by 2Pz"
+        },
+        "game_session": {
+            "username": "Username",
+            "message": "Message",
+            "password": "Co-op Password",
+            "refresh": "Refresh",
+            "search_placeholder": "Search for game session",
+            "stat": {
+                "stat_for": "Stat for {}",
+                "level": "Level: {}",
+                "stats": "Stats",
+                "values": "Values",
+                "vigor": "Vigor",
+                "mind": "Mind",
+                "endurance": "Endurance",
+                "strength": "Strength",
+                "dexterity": "Dexterity",
+                "intelligence": "Intelligence",
+                "faith": "Faith",
+                "arcane": "Arcane"
+            }
+        },
+        "main": {
+            "launch_button": "Launch Seamless Co-op"
+        },
+        "save_backup": {
+            "auto_backup_not_running": "Auto Backup: Not Running",
+            "backup_name": "Backup Name",
+            "date": "Date",
+            "save_backup": "Save Backup",
+            "load_backup": "Load Backup",
+            "delete": "Delete",
+            "start_auto_backup": "Start Auto Backup",
+            "stop_auto_backup": "Stop Auto Backup",
+            "confirm_delete_title": "Confirm Delete",
+            "confirm_delete?": "Are you sure you want to delete this backup?",
+            "backup_deleted": "Backup deleted successfully!",
+            "backup_not_deleted": "Failed to delete backup: {}",
+            "backup_auto_backup_running": "Auto Backup: Running ({} minute intervals)",
+            "backup_auto_backup_not_running": "Auto Backup: Not Running"
+        }
+    },
+    "messages": {
+        "update": {
+            "checking": "Checking for updates...",
+            "latest_installed": "You already have the latest version: {}.\nDo you want to reinstall it?",
+            "up_to_date": "You are already using the latest version.",
+            "downloading": "Downloading {}...",
+            "extracting_updates": "Extracting update...",
+            "last_version_installed": "Latest Version Installed",
+            "extracting": "Extracting files...",
+            "updating_settings": "Updating settings...",
+            "complete": "Update to {} completed successfully!",
+            "update_error": "Error during update",
+            "update_complete": "Update Complete",
+            "update_status": "Update Status",
+            "update_available": "Update Available",
+            "app_updated": "New Update version SeamlessCo-opManager_{}.exe downloaded. \nYou can delete this version.",
+            "new_version_downloading": "New version {} available. Downloading...",
+            "download_app?": "A new version is available For Seamless Co-op Manager!\n\nCurrent version: {}\nLatest version: {}\n\nDo you want to update now?",
+            "download_mod?": "A new version is available For Seamless Co-op Mod!\n\nCurrent version: {}\nLatest version: {}\n\nDo you want to update now?",
+            "update_cancelled": "Update cancelled",
+            "show_about": "Seamless Co-op Mod Manager \nVersion: {}\n\nThis application helps you update and manage Seamless \nCo-op Mod for Elden Ring.\n\nCreated by {}"
+        },
+        "errors": {
+            "path_required": "Please enter the Elden Ring mod installation path in the Settings tab.",
+            "fetch_latest_version": "Unable to fetch the latest version: {}",
+            "update_error_check": "Error during update check: {}",
+            "share_game_error": "It appears that the server might be down. Please check your internet connection or try again later.",
+            "share_game_error_title": "Unable to Share Game Session",
+            "Api_limit": "API Rate Limit Excedded. Try again later!",
+            "launch_error_title": "Seamless Co-op launch Error",
+            "game_exe_not_found": "Seamless Co-op launch Not found!\nPlease make sure you are using the correct path for Seamless Co-op executable",
+            "no_game_exe": "Please make sure you are using the correct path for Seamless Co-op executable!",
+            "backup_settings": "Please configure backup settings in the Settings page.",
+            "backup_create": "Failed to create backup: {}"
+        }
+    },
+    "lables": {
+        "success": "Success",
+        "error": "Error",
+        "yes": "Yes",
+        "no": "No",
+        "ok": "Ok",
+        "cancel": "Cancel"
+    }
+}

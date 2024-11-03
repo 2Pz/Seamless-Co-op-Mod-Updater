@@ -1,0 +1,22 @@
+2024-11-03 16:11:43,066 - DEBUG - Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2024-11-03 16:11:43,067 - DEBUG - Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2024-11-03 16:11:43,067 - DEBUG - Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2024-11-03 16:11:43,068 - DEBUG - Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2024-11-03 16:11:43,068 - DEBUG - Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2024-11-03 16:11:43,069 - DEBUG - Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2024-11-03 16:11:43,069 - DEBUG - Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2024-11-03 16:11:43,074 - DEBUG - Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2024-11-03 16:11:55,857 - INFO - Starting backup process...
+2024-11-03 16:11:56,599 - INFO - Creating backup at: D:/Users/Ali/Documents/Vscode_project/Savebackups\backup_20241103_161156.zip
+2024-11-03 16:11:56,781 - INFO - Screenshot added to backup
+2024-11-03 16:11:56,781 - INFO - Backup file created successfully
+2024-11-03 16:11:58,398 - INFO - Backup process completed successfully
+2024-11-03 16:12:39,330 - DEBUG - Starting new HTTPS connection (1): seamless-co-op-game-sessions.onrender.com:443
+2024-11-03 16:12:39,823 - DEBUG - https://seamless-co-op-game-sessions.onrender.com:443 "GET /sessions.json HTTP/11" 200 None
+2024-11-03 16:13:08,297 - INFO - Starting backup process...
+2024-11-03 16:13:08,805 - INFO - Creating backup at: D:/Users/Ali/Documents/Vscode_project/Savebackups\backup_20241103_161308.zip
+2024-11-03 16:13:09,363 - INFO - Screenshot added to backup
+2024-11-03 16:13:09,363 - INFO - Backup file created successfully
+2024-11-03 16:13:10,942 - INFO - Backup process completed successfully
+2024-11-03 16:13:39,344 - DEBUG - Starting new HTTPS connection (1): seamless-co-op-game-sessions.onrender.com:443
+2024-11-03 16:13:40,194 - DEBUG - https://seamless-co-op-game-sessions.onrender.com:443 "GET /sessions.json HTTP/11" 200 None

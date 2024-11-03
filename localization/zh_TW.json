@@ -1,0 +1,216 @@
+{
+    "language_name": "中文（繁體）",
+    "ui": {
+        "main_window": {
+            "title": "無縫合作MOD管理器",
+            "tabs": {
+                "main": "主視窗",
+                "settings": "設置",
+                "readme": "使用說明",
+                "changlog": "更新日誌",
+                "game_session": "遊戲會話",
+                "ersc_settings": "Seamless Co-op settings",
+                "save_backup": "Save Backup"
+            },
+            "menu": {
+                "help": "幫助",
+                "about": "關於",
+                "check_app_updates": "Check for Seamless Co-op Manager update",
+                "check_mod_updates": "Check for Seamless Co-op Mod update"
+            },
+            "status": {
+                "version": {
+                    "app": "應用版本: {}",
+                    "mod": {
+                        "unknown": "無縫合作版本: 未知",
+                        "not_found": "無縫合作版本: 未找到",
+                        "found": "無縫合作版本: {}"
+                    }
+                }
+            },
+            "status_ready": "已就緒"
+        },
+        "settings": {
+            "title": "設置",
+            "game_path": {
+                "title": "遊戲路徑",
+                "label": "遊戲路徑:",
+                "browse_button": "瀏覽",
+                "select_game_folder": "選擇艾爾登法環遊戲資料夾"
+            },
+            "gameplay": {
+                "title": "遊戲性",
+                "allow_invaders": "允許入侵者",
+                "death_debuffs": "死亡懲罰",
+                "allow_summons": "允許召喚",
+                "overhead_display": "玩家頭上顯示:",
+                "display_options": {
+                    "normal": "正常",
+                    "none": "無",
+                    "player_ping": "玩家延遲",
+                    "player_soul_level": "玩家靈魂等級",
+                    "player_death_count": "玩家死亡次數",
+                    "soul_level_and_ping": "靈魂等級和延遲"
+                },
+                "skip_splash": "跳過啟動畫面",
+                "volume": "默認啟動音量:"
+            },
+            "scaling": {
+                "title": "縮放",
+                "enemy_health": "敵人生命值縮放 (%):",
+                "enemy_damage": "敵人傷害縮放 (%):",
+                "enemy_posture": "敵人韌性縮放 (%):",
+                "boss_health": "Boss生命值縮放 (%):",
+                "boss_damage": "Boss傷害縮放 (%):",
+                "boss_posture": "Boss韌性縮放 (%):"
+            },
+            "password": {
+                "title": "密碼",
+                "coop_password": "合作密碼:"
+            },
+            "save": {
+                "title": "保存",
+                "extension": "保存檔案擴展名:"
+            },
+            "language": {
+                "title": "語言",
+                "override": "MOD語言覆蓋:",
+                "select_language": "選擇應用語言"
+            },
+            "save_button": "保存設置",
+            "settings_saved": "設置已保存",
+            "saved_message": "您的設置已保存到 {}",
+            "game_session": {
+                "share": "分享您的遊戲會話",
+                "title": "遊戲會話",
+                "username": "用戶名",
+                "message": "消息",
+                "save_folder": "Steam ID",
+                "character": "字元",
+                "save_folder_select": "選擇 Steam ID",
+                "character_select": "選擇角色"
+            },
+            "launcher": {
+                "title": "Seamless Co-op Launcher",
+                "game_exe": "Seamless Co-op executable",
+                "auto_check_updates": "Auto Update",
+                "select_game_exe": "Select Seamless Co-op execuatable"
+            },
+            "settings_error": "Save Settings Error",
+            "mod_path_error": "Please Make sure you are using the correct path for Game Folder!",
+            "mod_settings_error": "error occurred {}",
+            "reset_button": "Reset Settings",
+            "steam": {
+                "steam_settings": "Steam Settings",
+                "run_steam_silently": "Run Steam silently",
+                "steam_exe": "Steam.exe",
+                "auto_detect": "Auto Detect",
+                "steam_stauts": "Steam Status",
+                "running": "Running",
+                "not_running": "Not Running",
+                "steam_found": "Found Steam.exe",
+                "steam_not_found": "How about: Steam.exe not found. Please manually enter the path.",
+                "steam_path_required": "You must enter the path for steam.exe"
+            },
+            "reset_settings": "Reset Settings",
+            "rest_confirmation": "Are you sure you want to reset all settings to default values?",
+            "backup": {
+                "backup_settings": "Backup Settings",
+                "save_file_type": "Save File Type:",
+                "dir": "Backup Directory:",
+                "backup_Interval": "Auto Backup Interval (minutes):",
+                "backup_notify": "Enable Notification Sounds",
+                "key_binds": "Key Bindings",
+                "max_backups": "Max Backups:"
+            }
+        },
+        "about": {
+            "title": "關於",
+            "content": "無縫合作MOD管理器\n版本: {}\n\n此應用程序幫助您更新和管理艾爾登法環的無縫合作MOD。\n\n創建者: 2Pz"
+        },
+        "game_session": {
+            "username": "用戶名",
+            "message": "消息",
+            "password": "合作密碼",
+            "refresh": "刷新",
+            "search_placeholder": "搜索遊戲會話",
+            "stat": {
+                "stat_for": "{} 的統計",
+                "level": "級別：{}",
+                "stats": "統計",
+                "values": "值",
+                "vigor": "生命力",
+                "mind": "集中力",
+                "endurance": "耐力",
+                "strength": "力氣",
+                "dexterity": "靈巧",
+                "intelligence": "智力",
+                "faith": "信仰",
+                "arcane": "感應"
+            }
+        },
+        "main": {
+            "launch_button": "Launch Seamless Co-op"
+        },
+        "save_backup": {
+            "auto_backup_not_running": "Auto Backup: Not Running",
+            "backup_name": "Backup Name",
+            "date": "Date",
+            "save_backup": "Save Backup",
+            "load_backup": "Load Backup",
+            "delete": "Delete",
+            "start_auto_backup": "Start Auto Backup",
+            "stop_auto_backup": "Stop Auto Backup",
+            "confirm_delete_title": "Confirm Delete",
+            "confirm_delete?": "Are you sure you want to delete this backup?",
+            "backup_deleted": "Backup deleted successfully!",
+            "backup_not_deleted": "Failed to delete backup: {}",
+            "backup_auto_backup_running": "Auto Backup: Running ({} minute intervals)",
+            "backup_auto_backup_not_running": "Auto Backup: Not Running"
+        }
+    },
+    "messages": {
+        "update": {
+            "checking": "正在檢查更新...",
+            "latest_installed": "您已經是最新版本: {}。\n您想要重新安裝嗎?",
+            "up_to_date": "您已經在使用最新版本。",
+            "downloading": "正在下載 {}...",
+            "extracting_updates": "正在提取更新...",
+            "last_version_installed": "已安裝最新版本",
+            "extracting": "正在提取文件...",
+            "updating_settings": "正在更新設置...",
+            "complete": "成功更新到 {}!",
+            "update_error": "更新過程中出現錯誤",
+            "update_complete": "更新完成",
+            "update_status": "更新狀態",
+            "update_available": "有可用更新",
+            "app_updated": "新版本無縫合作管理器 SeamlessCo-opManager_{}.exe 已下載。\n您可以刪除此版本。",
+            "new_version_downloading": "新版本 {} 可用，正在下載...",
+            "download_app?": "A new version is available For Seamless Co-op Manager!\n\nCurrent version: {}\nLatest version: {}\n\nDo you want to update now?",
+            "download_mod?": "A new version is available For Seamless Co-op Mod!\n\nCurrent version: {}\nLatest version: {}\n\nDo you want to update now?",
+            "update_cancelled": "更新已取消",
+            "show_about": "無縫合作MOD管理器\n版本: {}\n\n此應用程序幫助您更新和管理無縫合作MOD。\n\n創建者: {}"
+        },
+        "errors": {
+            "path_required": "請在設置選項卡中輸入艾爾登法環MOD安裝路徑。",
+            "fetch_latest_version": "無法獲取最新版本: {}",
+            "update_error_check": "檢查更新時出現錯誤: {}",
+            "share_game_error": "似乎服務器可能出現問題。請檢查您的互聯網連接或稍後再試。",
+            "share_game_error_title": "無法分享遊戲會話",
+            "Api_limit": "API Rate Limit Excedded. Try again later!",
+            "launch_error_title": "Seamless Co-op launch Error",
+            "game_exe_not_found": "Seamless Co-op launch Not found!\nPlease make sure you are using the correct path for Seamless Co-op execuatable",
+            "no_game_exe": "Please make sure you are using the correct path for Seamless Co-op execuatable!",
+            "backup_settings": "Please configure backup settings in the Settings page.",
+            "backup_create": "Failed to create backup: {}"
+        }
+    },
+    "lables": {
+        "success": "Success",
+        "error": "Error",
+        "yes": "Yes",
+        "no": "No",
+        "ok": "Ok",
+        "cancel": "Cancel"
+    }
+}
